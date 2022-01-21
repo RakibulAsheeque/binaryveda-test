@@ -13,11 +13,12 @@
 
 # Prerequisite
 - npm
-    `$ npm install`
 
 # How to operate the server
 - Clone the repository
-    `git clone https://github.com/RakibulAsheeque/binaryveda-test.git`
+    `git clone https://github.com/RakibulAsheeque/binaryveda-test.git`    
+- Install dependencies
+    `$ npm install`
 - Start the server
     `$ node server.js`
 
