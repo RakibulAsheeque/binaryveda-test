@@ -14,7 +14,7 @@ const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const swagger = require("./docs/swagger");
 
-var PORT = process.env.PORT || 8080;
+const { PORT, databaseHost, databaseName, databasePassword, databaseUserName } = require("./app/config/config");
 
 /* Server configuration */
 app.use(bodyParser.json());
@@ -31,7 +31,7 @@ const swaggerSpec = swaggerJSDoc(swagger);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Connect to database
-mongoose.connect('mongodb+srv://mongo:QTtpqKXrVjJWDE2g@cluster0.hgtu8.mongodb.net/binaryveda-test?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${databaseUserName}:${databasePassword}@${databaseHost}/${databaseName}?retryWrites=true&w=majority`,
 () => {
   console.log("Connected to the database successfully");
 },
