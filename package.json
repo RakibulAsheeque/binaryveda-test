@@ -16,7 +16,9 @@
     "express": "^4.17.2",
     "http": "0.0.1-security",
     "mongoose": "^6.1.7",
+    "mongoose-unique-validator": "^3.0.0",
     "swagger-jsdoc": "^6.1.0",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.3.0",
+    "validator": "^13.7.0"
   }
 }

@@ -1,4 +1,6 @@
 'use strict'
+const uniqueValidator = require('mongoose-unique-validator');
+const { isEmail } = require('validator')
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -9,7 +11,9 @@ const userSchema = new mongoose.Schema({
     email:{
         type: String,
         required: [true, "email entry required"],
-        unique: [true, "email already exists, please provide a different email"]
+        unique: true,
+        lowercase: true,
+        validate: [ isEmail, "Please provide a valid email" ]
     },
     password:{
         type: String,
@@ -22,7 +26,13 @@ const userSchema = new mongoose.Schema({
         street: String,
         city: String,
         pin: Number 
+    },
+    createdAt: {
+        type: Date,
+        immutable: true,
+        default: Date.now()
     }
 })
+userSchema.plugin(uniqueValidator,{ message: '{PATH} must be unique'})
 
 module.exports = mongoose.model("User", userSchema);

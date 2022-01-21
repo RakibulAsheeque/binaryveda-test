@@ -22,11 +22,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("build"));
 
-// require("./app/router")(app);
+require("./app/router")(app);
 
-// Initialize swagger-jsdoc, returns validated swagger spec in json format
+// Initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(swagger);
 
+//Add swagger UI route
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Connect to database
