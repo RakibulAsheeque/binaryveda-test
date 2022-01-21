@@ -17,7 +17,7 @@
 
 # How to operate the server
 - Clone the repository
-    `git clone https://`
+    `git clone https://github.com/RakibulAsheeque/binaryveda-test.git`
 - Start the server
     `$ node server.js`
 
